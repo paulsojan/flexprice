@@ -186,11 +186,6 @@ func (cu *ConnectionUpdate) check() error {
 			return &ValidationError{Name: "provider_type", err: fmt.Errorf(`ent: validator failed for field "Connection.provider_type": %w`, err)}
 		}
 	}
-	if v, ok := cu.mutation.SyncConfig(); ok {
-		if err := v.Validate(); err != nil {
-			return &ValidationError{Name: "sync_config", err: fmt.Errorf(`ent: validator failed for field "Connection.sync_config": %w`, err)}
-		}
-	}
 	return nil
 }
 
